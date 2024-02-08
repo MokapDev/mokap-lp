@@ -1,5 +1,4 @@
 import LPBuilder from "@/components/LPBuilder";
-import SmoothScroll from "@/components/SmoothSection";
 import Image from "next/image";
 
 export default function Home() {

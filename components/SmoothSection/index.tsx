@@ -1,50 +1,50 @@
-'use client'
-import React, { useEffect, useRef } from "react";
-import styles from './smoothsection.module.css'
+// 'use client'
+// import React, { useEffect, useRef } from "react";
+// import styles from './smoothsection.module.css'
 
-import useWindowSize from "./useWindowSize";
+// import useWindowSize from "./useWindowSize";
 
-const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
-  const windowSize = useWindowSize();
+// const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
+//   const windowSize = useWindowSize();
 
-  const scrollingContainerRef = useRef<any>();
+//   const scrollingContainerRef = useRef<any>();
 
-  const data = {
-    ease: 0.1,
-    current: 0,
-    previous: 0,
-    rounded: 0,
-  };
+//   const data = {
+//     ease: 0.1,
+//     current: 0,
+//     previous: 0,
+//     rounded: 0,
+//   };
 
-  useEffect(() => {
-    setBodyHeight();
-  }, [windowSize.height]);
+//   useEffect(() => {
+//     setBodyHeight();
+//   }, [windowSize.height]);
 
-  const setBodyHeight = () => {
-    document.body.style.height = `${
-      scrollingContainerRef.current.getBoundingClientRect().height
-    }px`;
-  };
+//   const setBodyHeight = () => {
+//     document.body.style.height = `${
+//       scrollingContainerRef.current.getBoundingClientRect().height
+//     }px`;
+//   };
 
-  useEffect(() => {
-    requestAnimationFrame(() => smoothScrollingHandler());
-  }, []);
+//   useEffect(() => {
+//     requestAnimationFrame(() => smoothScrollingHandler());
+//   }, []);
 
-  const smoothScrollingHandler = () => {
-    data.current = window.scrollY;
-    data.previous += (data.current - data.previous) * data.ease;
-    data.rounded = Math.round(data.previous * 100) / 100;
+//   const smoothScrollingHandler = () => {
+//     data.current = window.scrollY;
+//     data.previous += (data.current - data.previous) * data.ease;
+//     data.rounded = Math.round(data.previous * 100) / 100;
 
-    scrollingContainerRef.current.style.transform = `translateY(-${data.previous}px)`;
+//     scrollingContainerRef.current.style.transform = `translateY(-${data.previous}px)`;
 
-    requestAnimationFrame(() => smoothScrollingHandler());
-  };
+//     requestAnimationFrame(() => smoothScrollingHandler());
+//   };
 
-  return (
-    <div className={styles.parent}>
-      <div ref={scrollingContainerRef}>{children}</div>
-    </div>
-  );
-};
+//   return (
+//     <div className={styles.parent}>
+//       <div ref={scrollingContainerRef}>{children}</div>
+//     </div>
+//   );
+// };
 
-export default SmoothScroll;
+// export default SmoothScroll;
