@@ -1,0 +1,19 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 12rem;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+}
+
+.darkSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 12rem;
+    min-height: 100vh;
+    background-color: #141414;
+}

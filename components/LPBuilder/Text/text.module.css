@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Degular Display';
+    src: url('/fonts/DegularDisplay-Semibold.otf') format('opentype');
+}
+
+.titleLight {
+    font-size: 4rem;
+    font-weight: 600;
+    font-family: 'Degular Display';
+    color: #FFFFFF;
+}
+.titleDark {
+    font-size: 4rem;
+    font-weight: 600;
+    font-family: 'Degular Display';
+    color: #141414;
+}
+.subtitleLight {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+.subtitleDark {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #141414;
+}
+.textLight {
+    font-size: 1.1rem;
+    color: #FFFFFF;
+}
+.textDark {
+    font-size: 1.1rem;
+    color: #141414;
+}
+.microtextLight {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+.microtextDark {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #141414;
+}

@@ -1,0 +1,15 @@
+.separator {
+    width: 100%;
+    height: 2rem;
+    min-height: 2rem;
+    max-height: 2rem;
+}
+.separatorWithLine {
+    width: 100%;
+    height: 1px;
+    min-height: 1px;
+    max-height: 1px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #E2E2E2;
+}

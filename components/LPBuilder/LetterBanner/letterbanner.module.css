@@ -1,0 +1,18 @@
+.trackContainer {
+  overflow: hidden;
+  width: 100%;
+  padding: 2rem 0rem;
+  background-color: #141414;
+}
+
+.wordsWrapper {
+  display: flex;
+  gap: 200px;
+  position: relative;
+}
+
+.wordsWrapper span {
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 600;
+}
