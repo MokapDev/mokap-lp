@@ -13,7 +13,7 @@ export default function Home() {
           { title: "Clientes", href: "#testimonials" },
           { title: "Contato", href: "#contact" },
         ]}
-        logoSrc="/logo.svg"
+        logoSrc="/logo-white.svg"
         logoAlt=""
       />
       <LPBuilder.Section id="home">
