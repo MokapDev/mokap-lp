@@ -16,6 +16,7 @@ import { Header } from "./Header/header";
 import { LetterBanner } from "./LetterBanner/letterbanner";
 import { Row } from "./Row/row";
 import { Footer } from "./Footer/footer";
+import { CardGrid } from "./CardGrid/cardgrid";
 
 /**
  * This is the Landing Page Builder component.
@@ -48,6 +49,7 @@ LPBuilder.Header = Header;
 LPBuilder.LetterBanner = LetterBanner;
 LPBuilder.Row = Row;
 LPBuilder.Footer = Footer;
+LPBuilder.CardGrid = CardGrid;
 
 export default LPBuilder;
 

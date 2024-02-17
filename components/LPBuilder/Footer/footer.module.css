@@ -14,3 +14,15 @@
     font-weight: 500;
     color: #FFFFFF;
 }
+
+@media only screen and (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        padding: 3rem 2rem;
+        align-items: center;
+    }
+
+    .links {
+        display: none;
+    }
+}

@@ -16,3 +16,13 @@
   font-size: 2rem;
   font-weight: 600;
 }
+
+@media only screen and (max-width: 768px) {
+  .wordsWrapper {
+    gap: 10px;
+  }
+
+  .wordsWrapper span {
+    font-size: 1.5rem;
+  }
+}

@@ -15,3 +15,15 @@
     font-weight: 500;
     color: #FFFFFF;
 }
+
+@media only screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 1rem 2rem;
+        align-items: center;
+    }
+
+    .links {
+        display: none;
+    }
+}
