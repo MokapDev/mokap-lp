@@ -1,4 +1,4 @@
-import { RevealWrapper } from "next-reveal";
+import { RevealList, RevealWrapper } from "next-reveal";
 
 export const CTASection = () => {
   return (
@@ -25,7 +25,7 @@ export const CTASection = () => {
                 </radialGradient>
               </defs>
             </svg>
-            <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <RevealList interval={200} delay={500} className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Alcançe seu potencial.
                 <br />
@@ -50,7 +50,7 @@ export const CTASection = () => {
                   Saiba mais <span aria-hidden="true">→</span>
                 </a>
               </div>
-            </div>
+            </RevealList>
             <div className="relative mt-16 h-80 lg:mt-8">
               <img
                 className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"

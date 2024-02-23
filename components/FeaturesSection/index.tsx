@@ -3,7 +3,7 @@ import {
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid";
-import { RevealWrapper } from "next-reveal";
+import { RevealList, RevealWrapper } from "next-reveal";
 
 const features = [
   {
@@ -29,11 +29,11 @@ const features = [
 export const FeaturesSection = () => {
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32">
-      <RevealWrapper origin="bottom">
+      <RevealWrapper origin="right">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:pr-8 lg:pt-4">
-              <div className="lg:max-w-lg">
+              <RevealList interval={200} delay={500} className="lg:max-w-lg">
                 <h2 className="text-base font-semibold leading-7 text-indigo-600">
                   Agilidade, criatividade e performance
                 </h2>
@@ -60,7 +60,7 @@ export const FeaturesSection = () => {
                     </div>
                   ))}
                 </dl>
-              </div>
+              </RevealList>
             </div>
             <img
               src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"

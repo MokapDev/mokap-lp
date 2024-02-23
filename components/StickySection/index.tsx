@@ -63,7 +63,7 @@ export const StickyServicesSection = () => {
           </div>
         )}
         <div
-          className={`flex-1 flex items-center justify-evenly ${
+          className={`flex-1 flex items-center justify-evenly bg-white ${
             isMobile ? "gap-16" : "h-[300vh]"
           } bg-current flex-col`}
         >

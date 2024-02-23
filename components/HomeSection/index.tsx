@@ -4,7 +4,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@nextui-org/react";
 import { SEO } from "../SEO";
-import { RevealWrapper } from "next-reveal";
+import { RevealList, RevealWrapper } from "next-reveal";
 
 const navigation = [
   { name: "Product", href: "" },
@@ -22,7 +22,7 @@ export const HomeSection = () => {
         title="Mokap - Soluções em Design e Desenvolvimento"
         description="Transforme sua presença online com nossas soluções!"
       />
-      <div className="bg-gray-950">
+      <div className="bg-gray-950 h-full">
         <header className="absolute inset-x-0 top-0 z-50">
           <nav
             className="flex items-center justify-between p-6 lg:px-8"
@@ -113,12 +113,10 @@ export const HomeSection = () => {
             />
           </div>
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-            <div className="text-center">
-              {/* <RevealWrapper> */}
+            <RevealList interval={100} delay={100} duration={2000} className="text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-gray-100 sm:text-6xl">
                   Transforme sua VISÃO em REALIDADE com um design excepcional.
                 </h1>
-              {/* </RevealWrapper> */}
               <p className="mt-6 text-lg leading-8 text-gray-300">
                 Bem vindo à MOKAP, onde ideias ganham vida através do poder do
                 design. Seja a mudança que seus clientes desejam ver no mundo.
@@ -130,14 +128,8 @@ export const HomeSection = () => {
                 <Button color="secondary" variant="bordered">
                   Saiba mais
                 </Button>
-                {/* <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-gray-200"
-              >
-                Saiba mais <span aria-hidden="true">→</span>
-              </a> */}
               </div>
-            </div>
+            </RevealList>
           </div>
           <div
             className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"

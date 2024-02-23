@@ -40,8 +40,7 @@ export const ContactSection = () => {
         method="POST"
         className="mx-auto mt-16 max-w-xl sm:mt-20"
       >
-        <RevealList interval={200} delay={500} origin="left" className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          {/* <RevealList interval={500} delay={500} origin="bottom"> */}
+        <RevealList interval={100} delay={200} origin="left" className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <div className="mt-2.5">
               <Input type="text" label="Nome" name="first-name" />
@@ -87,7 +86,6 @@ export const ContactSection = () => {
               Aceita compartilhar os dados acima
             </Switch>
           </div>
-          {/* </RevealList> */}
         </RevealList>
         <div className="mt-10">
           <button
