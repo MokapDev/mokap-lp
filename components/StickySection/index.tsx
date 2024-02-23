@@ -40,7 +40,7 @@ const ItemCard = ({ title, text }: { title: string; text: string }) => {
 };
 
 export const StickyServicesSection = () => {
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isMobile = typeof window !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
     <div className="bg-white">
