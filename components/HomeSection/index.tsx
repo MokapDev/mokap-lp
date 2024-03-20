@@ -1,10 +1,7 @@
 "use client";
-import { useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@nextui-org/react";
 import { SEO } from "../SEO";
-import { RevealList, RevealWrapper } from "next-reveal";
+import { Fade, JackInTheBox } from "react-awesome-reveal";
 
 const navigation = [
   { name: "Product", href: "" },
@@ -14,21 +11,20 @@ const navigation = [
 ];
 
 export const HomeSection = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <>
       <SEO
         title="Mokap - Soluções em Design e Desenvolvimento"
         description="Transforme sua presença online com nossas soluções!"
       />
-      <div className="bg-gray-950 h-full">
+      <div className="bg-gray-950 h-screen" id="home">
         <header className="absolute inset-x-0 top-0 z-50">
           <nav
             className="flex items-center justify-between p-6 lg:px-8"
             aria-label="Global"
           >
-            <div className="flex lg:flex-1">
+            {/* Lembrar de tirar o alinhamento centralizado quando for desktop, deixar centralizado apenas no mobile */}
+            <div className="flex lg:flex-1 w-full justify-center lg:justify-normal">
               <a href="#" className="-m-1.5 p-1.5">
                 <img
                   className="h-8 w-auto"
@@ -37,18 +33,8 @@ export const HomeSection = () => {
                 />
               </a>
             </div>
-            <div className="flex lg:hidden">
-              <button
-                type="button"
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(true)}
-              >
-                <span className="sr-only">Open main menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
             <div className="hidden lg:flex lg:gap-x-12">
-              {navigation.map((item) => (
+              {/* {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
@@ -56,47 +42,9 @@ export const HomeSection = () => {
                 >
                   {item.name}
                 </a>
-              ))}
+              ))} */}
             </div>
           </nav>
-          <Dialog
-            as="div"
-            className="lg:hidden"
-            open={mobileMenuOpen}
-            onClose={setMobileMenuOpen}
-          >
-            <div className="fixed inset-0 z-50" />
-            <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-              <div className="flex items-center justify-between">
-                <a href="#" className="-m-1.5 p-1.5">
-                  <img className="h-8 w-auto" src="./logowithtext.svg" alt="" />
-                </a>
-                <button
-                  type="button"
-                  className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span className="sr-only">Fechar</span>
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-500/10">
-                  <div className="space-y-2 py-6">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Dialog.Panel>
-          </Dialog>
         </header>
 
         <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -113,23 +61,31 @@ export const HomeSection = () => {
             />
           </div>
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-            <RevealList interval={100} delay={100} duration={2000} className="text-center">
+            <div className="text-center">
+              <JackInTheBox>
                 <h1 className="text-4xl font-bold tracking-tight text-gray-100 sm:text-6xl">
                   Transforme sua VISÃO em REALIDADE com um design excepcional.
                 </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                Bem vindo à MOKAP, onde ideias ganham vida através do poder do
-                design. Seja a mudança que seus clientes desejam ver no mundo.
-              </p>
+              </JackInTheBox>
+              <Fade direction="left">
+                <p className="mt-6 text-lg leading-8 text-gray-300">
+                  Bem vindo à MOKAP, onde ideias ganham vida através do poder do
+                  design. Seja a mudança que seus clientes desejam ver no mundo.
+                </p>
+              </Fade>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Button color="secondary" variant="shadow">
-                  Comece hoje!
-                </Button>
-                <Button color="secondary" variant="bordered">
-                  Saiba mais
-                </Button>
+                <Fade direction="left">
+                  <Button color="secondary" variant="shadow" >
+                    <a href="https://w.app/mokap">Comece hoje!</a>
+                  </Button>
+                </Fade>
+                <Fade direction="left" delay={300}>
+                  <Button color="secondary" variant="bordered">
+                    Saiba mais
+                  </Button>
+                </Fade>
               </div>
-            </RevealList>
+            </div>
           </div>
           <div
             className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
