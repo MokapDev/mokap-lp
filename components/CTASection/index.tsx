@@ -1,10 +1,9 @@
-import { RevealList, RevealWrapper } from "next-reveal";
-import { Fade } from "react-awesome-reveal";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 export const CTASection = () => {
   return (
-    <div className="bg-white">
-      <RevealWrapper origin="bottom">
+    <div className="bg-white" id="cta">
+      <Zoom>
         <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
@@ -27,14 +26,14 @@ export const CTASection = () => {
               </defs>
             </svg>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-              <Fade direction="down">
+              <Fade direction="left">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Alcançe seu potencial.
                   <br />
                   Conquiste o seu espaço.
                 </h2>
               </Fade>
-              <Fade direction="down">
+              <Fade direction="left">
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Com nossa expertise, transformamos sua visão em designs
                   impactantes, cativando seu público-alvo e impulsionando o
@@ -42,7 +41,7 @@ export const CTASection = () => {
                 </p>
               </Fade>
               <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-                <Fade direction="up">
+                <Fade direction="left">
                   <a
                     href="#"
                     className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -50,7 +49,7 @@ export const CTASection = () => {
                     Começar
                   </a>
                 </Fade>
-                <Fade direction="up">
+                <Fade direction="left">
                   <a
                     href="#"
                     className="text-sm font-semibold leading-6 text-white"
@@ -71,7 +70,7 @@ export const CTASection = () => {
             </div>
           </div>
         </div>
-      </RevealWrapper>
+      </Zoom>
     </div>
   );
 };

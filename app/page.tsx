@@ -8,9 +8,7 @@ import { LogoCloudsSection } from "@/components/LogoCloudsSection";
 import { ParallaxSection } from "@/components/ParallaxSection";
 import { SEO } from "@/components/SEO";
 import { ServicesSection } from "@/components/ServicesSection";
-import { StatsSection } from "@/components/StatsSection";
 import { TeamSection } from "@/components/TeamSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -23,7 +21,7 @@ export default function Home() {
       <FeaturesSection />
       <CTASection />
       <ParallaxSection></ParallaxSection>
-      <StatsSection />
+      {/* <StatsSection /> */}
       <LogoCloudsSection />
       <TeamSection />
       {/* <StickyServicesSection /> */}

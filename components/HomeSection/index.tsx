@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@nextui-org/react";
 import { SEO } from "../SEO";
-import { Fade, JackInTheBox } from "react-awesome-reveal";
+import { Fade, JackInTheBox, Slide } from "react-awesome-reveal";
 
 const navigation = [
   { name: "Product", href: "" },
@@ -23,7 +23,6 @@ export const HomeSection = () => {
             className="flex items-center justify-between p-6 lg:px-8"
             aria-label="Global"
           >
-            {/* Lembrar de tirar o alinhamento centralizado quando for desktop, deixar centralizado apenas no mobile */}
             <div className="flex lg:flex-1 w-full justify-center lg:justify-normal">
               <a href="#" className="-m-1.5 p-1.5">
                 <img
@@ -62,29 +61,25 @@ export const HomeSection = () => {
           </div>
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
             <div className="text-center">
-              <JackInTheBox>
-                <h1 className="text-4xl font-bold tracking-tight text-gray-100 sm:text-6xl">
-                  Transforme sua VISÃO em REALIDADE com um design excepcional.
-                </h1>
-              </JackInTheBox>
-              <Fade direction="left">
+              <Fade direction="up" cascade>
+                <JackInTheBox>
+                  <h1 className="text-4xl font-bold tracking-tight text-gray-100 sm:text-6xl">
+                    Transforme sua VISÃO em REALIDADE com um design excepcional.
+                  </h1>
+                </JackInTheBox>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Bem vindo à MOKAP, onde ideias ganham vida através do poder do
                   design. Seja a mudança que seus clientes desejam ver no mundo.
                 </p>
-              </Fade>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Fade direction="left">
-                  <Button color="secondary" variant="shadow" >
+                <div className="mt-10 flex items-center justify-center gap-x-6">
+                  <Button color="secondary" variant="shadow">
                     <a href="https://w.app/mokap">Comece hoje!</a>
                   </Button>
-                </Fade>
-                <Fade direction="left" delay={300}>
                   <Button color="secondary" variant="bordered">
                     Saiba mais
                   </Button>
-                </Fade>
-              </div>
+                </div>
+              </Fade>
             </div>
           </div>
           <div
