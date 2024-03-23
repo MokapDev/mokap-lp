@@ -1,89 +1,39 @@
 "use client";
-import { useEffect, useState } from "react";
-import {
-  Button,
-  Input,
-  Select,
-  SelectItem,
-  Selection,
-  Switch,
-  Textarea,
-} from "@nextui-org/react";
+import { useState } from "react";
+import { Button, Input, Switch, Textarea } from "@nextui-org/react";
 import { RevealList } from "next-reveal";
 
 interface IFormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   company: string;
   email: string;
+  country: string;
   phoneNumber: string;
   message: string;
-  selectedServices: string[];
 }
-
-const options = [
-  {
-    label: "Landing Pages",
-    value: "Landing Pages",
-  },
-  {
-    label: "Redes sociais",
-    value: "Redes sociais",
-  },
-  {
-    label: "Banners, folders e panfletos",
-    value: "Banners, folders e panfletos",
-  },
-  {
-    label: "Cartões de visita",
-    value: "Cartões de visita",
-  },
-  {
-    label: "Identidade visual",
-    value: "Identidade visual",
-  },
-  {
-    label: "Designs personalizados",
-    value: "Designs personalizados",
-  },
-];
 
 export const ContactSection = () => {
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState<IFormData>({
-    name: "",
+    firstName: "",
+    lastName: "",
     company: "",
     email: "",
+    country: "",
     phoneNumber: "",
     message: "",
-    selectedServices: [],
   });
 
   const handleChange = (name: string, value: string) => {
-    if (name === "phoneNumber") {
-      // Remover todos os não dígitos
-      const numericValue = value.replace(/\D/g, "");
-
-      // Aplicar máscara de telefone
-      let formattedValue = "";
-      for (let i = 0; i < numericValue.length; i++) {
-        if (i === 0) {
-          formattedValue += "(";
-        } else if (i === 2) {
-          formattedValue += ") ";
-        } else if (i === 7) {
-          formattedValue += "-";
-        }
-        formattedValue += numericValue[i];
-      }
-
-      // Atualizar o valor do campo
-      value = formattedValue;
-    }
-
-    if (name === "name") {
-      value = value.replace(/\b\w/g, (char) => char.toUpperCase());
+    if (name === "country") {
+      value = value.replace(/\D/g, "");
+      value = value.slice(0, 3);
+    } else if (name === "phoneNumber") {
+      value = value.replace(/\D/g, "");
+      value = value.replace(/(\d{5})(\d{4})/, "$1-$2");
     }
 
     setFormData((prevState) => ({
@@ -102,11 +52,17 @@ export const ContactSection = () => {
 
     const errors: Record<string, string> = {};
 
-    if (!formData.name) {
-      errors.name = "Nome é obrigatório";
+    if (!formData.firstName) {
+      errors.firstName = "Nome é obrigatório";
+    }
+    if (!formData.lastName) {
+      errors.lastName = "Sobrenome é obrigatório";
     }
     if (!formData.email) {
       errors.email = "Email é obrigatório";
+    }
+    if (!formData.country) {
+      errors.country = "DDD é obrigatório";
     }
     if (!formData.phoneNumber) {
       errors.phoneNumber = "Número de telefone é obrigatório";
@@ -121,45 +77,20 @@ export const ContactSection = () => {
       return;
     }
 
-    const body = formData;
-
-    setFormData({
-      name: "",
-      company: "",
-      email: "",
-      phoneNumber: "",
-      message: "",
-      selectedServices: [],
-    });
-
-    alert("Email enviado com sucesso!");
-
     await fetch("/api/email", {
       method: "POST",
-      body: JSON.stringify(body),
+      body: JSON.stringify(formData),
     })
       .then(() => {
-        console.log("Email enviado");
+        alert("Email enviado com sucesso! Em breve nós te retornaremos.");
       })
       .catch((e) => {
         alert("Erro" + e + ".");
       });
   };
 
-  const handleSelectionChange = (selection: Selection) => {
-    const selectedValues = Array.from(selection).map((item) => item.toString());
-    setFormData((prevState) => ({
-      ...prevState,
-      selectedServices: selectedValues,
-    }));
-  };
-
-  useEffect(() => {
-    console.log("formdata", formData)
-  }, [formData])
-
   return (
-    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8" id="contact">
+    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -193,16 +124,29 @@ export const ContactSection = () => {
           origin="left"
           className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2"
         >
-          <div className="sm:col-span-2">
+          <div>
             <div className="mt-2.5">
               <Input
                 type="text"
                 label="Nome *"
                 name="first-name"
-                value={formData.name}
-                onValueChange={(text) => handleChange("name", text)}
-                isInvalid={!!errors.name}
-                errorMessage={errors.name}
+                value={formData.firstName}
+                onValueChange={(text) => handleChange("firstName", text)}
+                isInvalid={!!errors.firstName}
+                errorMessage={errors.firstName}
+              />
+            </div>
+          </div>
+          <div>
+            <div className="mt-2.5">
+              <Input
+                type="text"
+                label="Sobrenome *"
+                name="last-name"
+                value={formData.lastName}
+                onValueChange={(text) => handleChange("lastName", text)}
+                isInvalid={!!errors.lastName}
+                errorMessage={errors.lastName}
               />
             </div>
           </div>
@@ -232,17 +176,30 @@ export const ContactSection = () => {
               />
             </div>
           </div>
-          <div className="sm:col-span-2">
+          <div>
             <div className="mt-2.5">
               <Input
                 type="numeric"
-                label="Celular (Whatsapp) *"
+                label="DDD *"
+                name="country"
+                value={formData.country}
+                onValueChange={(text) => handleChange("country", text)}
+                isInvalid={!!errors.country}
+                errorMessage={errors.country}
+              />
+            </div>
+          </div>
+          <div>
+            <div className="mt-2.5">
+              <Input
+                type="numeric"
+                label="Número *"
                 name="phone-number"
                 value={formData.phoneNumber}
                 onValueChange={(text) => handleChange("phoneNumber", text)}
                 isInvalid={!!errors.phoneNumber}
                 errorMessage={errors.phoneNumber}
-                maxLength={15}
+                maxLength={10}
               />
             </div>
           </div>
@@ -252,33 +209,13 @@ export const ContactSection = () => {
                 label="Mensagem *"
                 className="max-w"
                 maxRows={4}
-                maxLength={500}
+                maxLength={200}
                 name="message"
                 value={formData.message}
                 onValueChange={(text) => handleChange("message", text)}
                 isInvalid={!!errors.message}
                 errorMessage={errors.message}
               />
-            </div>
-          </div>
-          <div className="sm:col-span-2">
-            <div className="mt-2.5">
-              <Select
-                label="Selecione os serviços de interesse"
-                selectionMode="multiple"
-                className="max-w"
-                onSelectionChange={handleSelectionChange}
-              >
-                {options.map((option) => (
-                  <SelectItem
-                    key={option.value}
-                    value={option.value}
-                    className="text-black"
-                  >
-                    {option.label}
-                  </SelectItem>
-                ))}
-              </Select>
             </div>
           </div>
           <div className="sm:col-span-2">
@@ -289,7 +226,7 @@ export const ContactSection = () => {
         </RevealList>
         <div className="mt-10">
           <Button
-            isDisabled={!agreed}
+          isDisabled={!agreed}
             type="submit"
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >

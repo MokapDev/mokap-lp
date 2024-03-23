@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 const people = [
   {
     name: "Álef S. Rosa",
-    role: "Líder Técnico / Desenvolvedor",
+    role: "Desenvolvedor / Designer",
     imageUrl: "./alef.png",
   },
   {
@@ -43,7 +43,7 @@ export const TeamSection = () => {
         </div>
         <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
           {people.map((person, index) => (
-            <Fade direction="right" delay={100 + 100 * index}>
+            <Fade direction="right" delay={100 + 100 * index} key={person.name}>
               <div key={person.name}>
                 <div className="flex items-center gap-x-6">
                   <img className="h-48 w-48" src={person.imageUrl} alt="" />

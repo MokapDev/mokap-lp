@@ -2,6 +2,7 @@
 import { Button } from "@nextui-org/react";
 import { SEO } from "../SEO";
 import { Fade, JackInTheBox, Slide } from "react-awesome-reveal";
+import Link from "next/link";
 
 const navigation = [
   { name: "Product", href: "" },
@@ -72,10 +73,10 @@ export const HomeSection = () => {
                   design. Seja a mudança que seus clientes desejam ver no mundo.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <Button color="secondary" variant="shadow">
-                    <a href="https://w.app/mokap">Comece hoje!</a>
+                  <Button as={Link} href="#contact" color="secondary" variant="shadow">
+                    Comece hoje!
                   </Button>
-                  <Button color="secondary" variant="bordered">
+                  <Button as={Link} href="#about" color="secondary" variant="bordered">
                     Saiba mais
                   </Button>
                 </div>

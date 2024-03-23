@@ -46,7 +46,7 @@ const features = [
 
 export const ServicesSection = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white" id="services">
       <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
         <div>
           <Fade direction="left">
@@ -67,7 +67,7 @@ export const ServicesSection = () => {
 
           <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
             {features.map((feature, index) => (
-              <Fade direction="left" delay={100 + 100 * index}>
+              <Fade direction="left" delay={100 + 100 * index} key={feature.name}>
                 <div
                   key={feature.name}
                   className="border-t border-gray-200 pt-4"
@@ -89,29 +89,25 @@ export const ServicesSection = () => {
         <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
           <Zoom>
             <img
-              src="./frame1.png"
-              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              src="/frame1.png"
               className="rounded-lg bg-gray-100"
             />
           </Zoom>
           <Zoom>
             <img
-              src="./frame2.png"
-              alt="Top down view of walnut card tray with embedded magnets and card groove."
+              src="/frame2.png"
               className="rounded-lg bg-gray-100"
             />
           </Zoom>
           <Zoom>
             <img
-              src="./frame2.png"
-              alt="Side of walnut card tray with card groove and recessed card area."
+              src="/frame3.png"
               className="rounded-lg bg-gray-100"
             />
           </Zoom>
           <Zoom>
             <img
-              src="./frame1.png"
-              alt="Walnut card tray filled with cards and card angled in dedicated groove."
+              src="/frame4.png"
               className="rounded-lg bg-gray-100"
             />
           </Zoom>
