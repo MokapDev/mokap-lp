@@ -20,7 +20,7 @@ export default function Home() {
       <HomeSection />
       <FeaturesSection />
       <CTASection />
-      <ParallaxSection></ParallaxSection>
+      {/* <ParallaxSection></ParallaxSection> */}
       {/* <StatsSection /> */}
       <LogoCloudsSection />
       <TeamSection />

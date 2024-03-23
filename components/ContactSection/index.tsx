@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {
   Button,
   Input,
+  Link,
   Select,
   SelectItem,
   Selection,
@@ -10,6 +11,10 @@ import {
   Textarea,
 } from "@nextui-org/react";
 import { RevealList } from "next-reveal";
+import {
+  ChatBubbleBottomCenterIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+} from "@heroicons/react/20/solid";
 
 interface IFormData {
   name: string;
@@ -155,8 +160,8 @@ export const ContactSection = () => {
   };
 
   useEffect(() => {
-    console.log("formdata", formData)
-  }, [formData])
+    console.log("formdata", formData);
+  }, [formData]);
 
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8" id="contact">
@@ -287,13 +292,25 @@ export const ContactSection = () => {
             </Switch>
           </div>
         </RevealList>
-        <div className="mt-10">
+        <div className="mt-10 flex flex-col gap-8">
           <Button
             isDisabled={!agreed}
             type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="block w-full min-h-12 rounded-xl bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Vamos conversar!
+          </Button>
+          <p className="text-black text-center">Ou nos chame pelo Whatsapp</p>
+          <Button
+            as={Link}
+            href="https://w.app/mokap"
+            startContent={
+              <ChatBubbleOvalLeftEllipsisIcon width={30} height={30} />
+            }
+            type="submit"
+            className="w-full min-h-12 rounded-xl bg-[#00D95F] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Whatsapp
           </Button>
         </div>
       </form>

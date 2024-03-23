@@ -21,8 +21,8 @@ export const CTASection = () => {
               />
               <defs>
                 <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-                  <stop stopColor="#FF623C" />
-                  <stop offset={1} stopColor="#FF623C" />
+                  <stop stopColor="#FD94FF" />
+                  <stop offset={1} stopColor="#FD94FF" />
                 </radialGradient>
               </defs>
             </svg>

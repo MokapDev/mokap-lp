@@ -7,13 +7,13 @@ const people = [
     imageUrl: "./alef.png",
   },
   {
-    name: "Luana S. Chan",
-    role: "Designer de Interface",
+    name: "Luana C. Santos",
+    role: "UI Designer / Ilustradora",
     imageUrl: "./luana.png",
   },
   {
     name: "Luísa R. Faria",
-    role: "Designer gráfica / Ilustradora Digital",
+    role: "Designer Gráfica / Ilustradora Digital",
     imageUrl: "./luisa.png",
   },
   {

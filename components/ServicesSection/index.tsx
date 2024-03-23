@@ -6,6 +6,7 @@ import {
   PaintBrushIcon,
   PuzzlePieceIcon,
 } from "@heroicons/react/20/solid";
+import { Image } from "@nextui-org/react";
 import { Fade, Zoom } from "react-awesome-reveal";
 
 const features = [
@@ -67,7 +68,11 @@ export const ServicesSection = () => {
 
           <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
             {features.map((feature, index) => (
-              <Fade direction="left" delay={100 + 100 * index} key={feature.name}>
+              <Fade
+                direction="left"
+                delay={100 + 100 * index}
+                key={feature.name}
+              >
                 <div
                   key={feature.name}
                   className="border-t border-gray-200 pt-4"
@@ -88,28 +93,16 @@ export const ServicesSection = () => {
         </div>
         <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
           <Zoom>
-            <img
-              src="/frame1.png"
-              className="rounded-lg bg-gray-100"
-            />
+            <Image src="/frame1.png" className="rounded-lg bg-gray-100" />
           </Zoom>
           <Zoom>
-            <img
-              src="/frame2.png"
-              className="rounded-lg bg-gray-100"
-            />
+            <Image src="/frame2.png" className="rounded-lg bg-gray-100" />
           </Zoom>
           <Zoom>
-            <img
-              src="/frame3.png"
-              className="rounded-lg bg-gray-100"
-            />
+            <Image src="/frame3.png" className="rounded-lg bg-gray-100" />
           </Zoom>
           <Zoom>
-            <img
-              src="/frame4.png"
-              className="rounded-lg bg-gray-100"
-            />
+            <Image src="/frame4.png" className="rounded-lg bg-gray-100" />
           </Zoom>
         </div>
       </div>

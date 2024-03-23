@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
+const poppins = Poppins({ weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "Mokap - Soluções em Design e Desenvolvimento",
@@ -54,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="light">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Providers>{children}</Providers>
       </body>
     </html>
